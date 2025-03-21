@@ -1,2 +1,0 @@
-# AIxOmics
-Welcome to AIxOmics
