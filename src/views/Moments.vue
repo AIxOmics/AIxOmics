@@ -4,17 +4,17 @@ import { useDark } from "@vueuse/core"; // 引入暗黑模式
 import Axios from "axios";
 
 const isDark = ref(useDark());
-const moments = ref();
-Axios.get("/api/moments")
-  .then((res) => {
-    // console.log(res)
-    if (res.status == 200) {
-      moments.value = res.data.data.moments;
-    }
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// const moments = ref();
+// Axios.get("/api/moments")
+//   .then((res) => {
+//     // console.log(res)
+//     if (res.status == 200) {
+//       moments.value = res.data.data.moments;
+//     }
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
 const screenWidth = ref();
 screenWidth.value = document.body.clientWidth;
@@ -24,48 +24,23 @@ window.onresize = () => {
 // onMounted(() => {
 // })
 
-// const moments = [
-//   {
-//     date: "2018-04-15",
-//     title: "An important eventAn important eventAn important eventAn important eventAn important eventAn important event",
-//     image: ""
-//   },
-//   {
-//     date: "2018-04-15",
-//     title: "An important eventAn important eventAn important eventAn important eventAn important eventAn important eventAn important event",
-//     image: "https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-//   },
-//   {
-//     date: "2018-04-15",
-//     title: "An important eventAn important eventAn important eventAn important eventAn important eventAn important eventAn important eventAn important eventAn important eventAn important eventAn important eventAn important event",
-//     image: ""
-//   },
-//   {
-//     date: "2018-04-15",
-//     title: "An important eventAn important eventAn important eventAn important event",
-//     image: "https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-//   },
-//   {
-//     date: "2018-04-15",
-//     title: "An important event",
-//     image: ""
-//   },
-//   {
-//     date: "2018-04-15",
-//     title: "An important event",
-//     image: ""
-//   },
-//   {
-//     date: "2018-04-15",
-//     title: "An important event",
-//     image: "https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-//   },
-//   {
-//     date: "2018-04-15",
-//     title: "An important event",
-//     image: ""
-//   }
-// ]
+const moments = [
+  {
+    date: "2025-03-27",
+    title: "AIxOmics 线上会议成功举办",
+    Image: ""
+  },
+  {
+    date: "2024-03-18",
+    title: "AIxOmics 促进AI与基因组学的跨界合作",
+    image: ""
+  },
+  {
+    date: "2023-09-18",
+    title: "AIxOmics 举办了首次社区发展工作坊，讨论如何推动数据共享与开放协作",
+    image: ""
+  }
+];
 </script>
 
 <template>

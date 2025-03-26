@@ -7,16 +7,16 @@ import bioImage from "./../assets/imgs/research/Bio.png";
 const isDark = ref(useDark());
 
 const researches = ref();
-Axios.get("/api/research")
-  .then((res) => {
-    // console.log(res)
-    if (res.status == 200) {
-      researches.value = res.data.data.researches;
-    }
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// Axios.get("/api/research")
+//   .then((res) => {
+//     // console.log(res)
+//     if (res.status == 200) {
+//       researches.value = res.data.data.researches;
+//     }
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
 const screenWidth = ref();
 screenWidth.value = document.body.clientWidth;
@@ -93,7 +93,7 @@ window.onresize = () => {
           >
             <div class="wrapper-sketch-text-title">Research</div>
             <div class="wrapper-sketch-text-subtitle">
-              Computational systems biology & Bioinformatics
+              AIxOmics & Bioinformatics
             </div>
             <h1 class="wrapper-sketch-text-content">
               Go for Science and Seek for Progress

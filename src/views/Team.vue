@@ -3,24 +3,24 @@ import { ref, onMounted } from "vue";
 import { useDark } from "@vueuse/core"; // 引入暗黑模式
 import { Warning } from "@element-plus/icons-vue";
 import Axios from "axios";
-import familyImage from "./../assets/imgs/team/family.jpg";
+// import familyImage from "./../assets/imgs/team/family.jpg";
 
 const fill = ref(true);
 const isDark = ref(useDark());
 // const statistics = ref()
-const team = ref();
-const supports = ref();
-Axios.get("/api/team")
-  .then((res) => {
-    // console.log(res)
-    if (res.status == 200) {
-      team.value = res.data.data.team;
-      supports.value = res.data.data.supports;
-    }
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// const team = ref();
+// const supports = ref();
+// Axios.get("/api/team")
+//   .then((res) => {
+//     // console.log(res)
+//     if (res.status == 200) {
+//       team.value = res.data.data.team;
+//       supports.value = res.data.data.supports;
+//     }
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
 const screenWidth = ref();
 screenWidth.value = document.body.clientWidth;
@@ -30,6 +30,79 @@ window.onresize = () => {
 // onMounted(() => {
 // })
 
+// const team = ref([
+//   {
+//     title: "AIxOmics 核心团队",
+//     isShow: true,
+//     people: [
+//       {
+//         name: "John Doe",
+//         position: "AI研究员",
+//         avatar: "https://example.com/images/john-doe.jpg",
+//         biography: "John 是一名经验丰富的 AI 研究员，专注于机器学习与生物信息学的结合。",
+//         hometown: "纽约, 美国",
+//         fact: "John 曾参加过极限马拉松比赛。",
+//         website: "https://johndoe.example.com",
+//         timeline: "2021年加入AIxOmics",
+//         interests: ["人工智能", "基因组学", "机器学习"],
+//         commerce: [
+//           {
+//             icon: "fa-linkedin",
+//             account: "LinkedIn",
+//             link: "https://www.linkedin.com/in/johndoe"
+//           },
+//           {
+//             icon: "fa-twitter",
+//             account: "Twitter",
+//             link: "https://twitter.com/johndoe"
+//           }
+//         ]
+//       },
+//       {
+//         name: "Jane Smith",
+//         position: "生物学家",
+//         avatar: "https://example.com/images/jane-smith.jpg",
+//         biography: "Jane 是一名生物学家，擅长基因组学与生物技术的研究。",
+//         hometown: "伦敦, 英国",
+//         fact: "Jane 喜欢摄影和旅行。",
+//         website: "https://janesmith.example.com",
+//         timeline: "2019年加入AIxOmics",
+//         interests: ["基因组学", "生物技术", "数据分析"],
+//         commerce: [
+//           {
+//             icon: "fa-github",
+//             account: "GitHub",
+//             link: "https://github.com/janesmith"
+//           }
+//         ]
+//       }
+//     ]
+//   },
+//   {
+//     title: "AIxOmics 策略顾问团队",
+//     isShow: true,
+//     people: [
+//       {
+//         name: "Alice Johnson",
+//         position: "技术顾问",
+//         avatar: "https://example.com/images/alice-johnson.jpg",
+//         biography: "Alice 在 AI 和技术创新领域有着丰富的经验，曾为多家科技公司提供战略咨询。",
+//         hometown: "旧金山, 美国",
+//         fact: "Alice 喜欢写代码并致力于开源项目。",
+//         website: "https://alicejohnson.example.com",
+//         timeline: "2022年加入AIxOmics",
+//         interests: ["AI创新", "技术战略", "开源软件"],
+//         commerce: [
+//           {
+//             icon: "fa-linkedin",
+//             account: "LinkedIn",
+//             link: "https://www.linkedin.com/in/alicejohnson"
+//           }
+//         ]
+//       }
+//     ]
+//   }
+// ])
 // const statistics = [
 //   {
 //     title: "Professors",
@@ -933,10 +1006,7 @@ window.onresize = () => {
       <el-col :span="2"></el-col>
       <el-col :span="20">
         <el-row>
-          <el-col
-            class="wrapper-sketch-text"
-            :span="screenWidth > 1200 ? 14 : 24"
-          >
+          <el-col class="wrapper-sketch-text" :span="screenWidth > 1200 ? 14 : 24">
             <div class="wrapper-sketch-text-title">Team</div>
             <div class="wrapper-sketch-text-subtitle">A Happy Family</div>
             <h1 class="wrapper-sketch-text-content">
@@ -949,10 +1019,7 @@ window.onresize = () => {
     </el-row>
   </div>
   <!-- 统计 -->
-  <el-row
-    class="team-statistic"
-    :style="{ 'background-color': !isDark ? '#e2e1e4' : '#22202e' }"
-  >
+  <el-row class="team-statistic" :style="{ 'background-color': !isDark ? '#e2e1e4' : '#22202e' }">
     <el-col :span="2"></el-col>
     <el-col :span="20">
       <el-row>
@@ -966,11 +1033,7 @@ window.onresize = () => {
                   <template #title>
                     <div style="display: inline-flex; align-items: center">
                       {{ statistic.title }}
-                      <el-tooltip
-                        effect="dark"
-                        :content="statistic.content"
-                        placement="top"
-                      >
+                      <el-tooltip effect="dark" :content="statistic.content" placement="top">
                         <el-icon style="margin-left: 4px" :size="12">
                           <Warning />
                         </el-icon>
@@ -982,8 +1045,7 @@ window.onresize = () => {
             </el-col>
           </el-row>
           <!-- 左侧文本 -->
-          <span class="web-text"
-            >Our research group is a happy team. There is a composition of our
+          <span class="web-text">Our research group is a happy team. There is a composition of our
             group family and a family photo. Our research Lab is a happy team
             where every member is valued for their unique contributions and
             ideas. We believe that a positive and welcoming environment is
@@ -995,15 +1057,11 @@ window.onresize = () => {
           </span>
         </el-col>
         <!-- 右侧图片 -->
-        <el-col
-          class="team-statistic-image"
-          :span="screenWidth > 1200 ? 14 : 24"
-          :offset="screenWidth > 1200 ? 2 : 24"
-        >
+        <el-col class="team-statistic-image" :span="screenWidth > 1200 ? 14 : 24" :offset="screenWidth > 1200 ? 2 : 24">
           <!-- <el-image style="width: 100%; height: 360px;"
             src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"></el-image> -->
           <!-- <el-image style="width: 100%;" :src="familyImage"></el-image> -->
-          <el-image
+          <!-- <el-image
             style="width: 100%"
             fit="fill"
             :src="familyImage"
@@ -1011,46 +1069,31 @@ window.onresize = () => {
             :preview-src-list="[familyImage]"
             :initial-index="4"
             hide-on-click-modal="true"
-          ></el-image>
+          ></el-image> -->
         </el-col>
       </el-row>
     </el-col>
     <el-col :span="2"></el-col>
   </el-row>
   <!-- 人像 -->
-  <el-row
-    class="team-people"
-    :style="{ 'background-color': !isDark ? '#cdd1d3' : '#131124' }"
-    v-for="(identify, index) in team"
-    :key="index"
-  >
+  <el-row class="team-people" :style="{ 'background-color': !isDark ? '#cdd1d3' : '#131124' }"
+    v-for="(identify, index) in team" :key="index">
     <el-col :span="2"></el-col>
     <el-col :span="20">
       <h1 v-if="identify.isShow">{{ identify.title }}</h1>
       <el-row :gutter="70">
-        <el-col
-          class="team-people-person"
-          :span="screenWidth > 1600 ? 8 : screenWidth > 1080 ? 12 : 24"
-          v-for="(person, index) in identify.people"
-          :key="index"
-        >
+        <el-col class="team-people-person" :span="screenWidth > 1600 ? 8 : screenWidth > 1080 ? 12 : 24"
+          v-for="(person, index) in identify.people" :key="index">
           <!-- Image + Info -->
           <div class="team-people-person-box">
-            <el-image
-              class="team-people-person-box-image"
-              style="width: 100%"
-              :src="person.avatar"
-              :fit="fill"
-            ></el-image>
+            <el-image class="team-people-person-box-image" style="width: 100%" :src="person.avatar"
+              :fit="fill"></el-image>
             <!-- Info -->
-            <div
-              class="team-people-person-box-info"
-              :style="{
-                background: !isDark
-                  ? 'rgba(255, 255, 255, 0.6)'
-                  : 'rgba(0, 0, 0, 0.6)',
-              }"
-            >
+            <div class="team-people-person-box-info" :style="{
+              background: !isDark
+                ? 'rgba(255, 255, 255, 0.6)'
+                : 'rgba(0, 0, 0, 0.6)',
+            }">
               <!-- Biography -->
               <p>{{ person.biography }}</p>
               <!-- Hometown -->
@@ -1063,49 +1106,29 @@ window.onresize = () => {
             <!-- Name + Position -->
             <div class="team-people-person-card-basic">
               <!-- Name -->
-              <el-link
-                class="team-people-person-card-basic-name"
-                :underline="false"
-                target="_blank"
-                :href="person.website"
-              >
+              <el-link class="team-people-person-card-basic-name" :underline="false" target="_blank"
+                :href="person.website">
                 {{ person.name }}
               </el-link>
               <!-- Position -->
-              <el-tag
-                class="team-people-person-card-basic-position"
-                size="large"
-                effect="plain"
-                >{{ person.position }}</el-tag
-              >
+              <el-tag class="team-people-person-card-basic-position" size="large" effect="plain">{{ person.position
+                }}</el-tag>
             </div>
             <!-- Timeline -->
-            <div
-              v-if="person.timeline"
-              class="team-people-person-card-timeline"
-            >
+            <div v-if="person.timeline" class="team-people-person-card-timeline">
               <span>{{ person.timeline }}</span>
             </div>
             <!-- Interests -->
             <div class="team-people-person-card-interests-wrapper">
-              <el-tag
-                class="team-people-person-card-interests"
-                v-for="(interest, index) in person.interests"
-                :key="index"
-                ><font-awesome-icon :icon="['fas', 'tag']" />
-                {{ interest }}</el-tag
-              >
+              <el-tag class="team-people-person-card-interests" v-for="(interest, index) in person.interests"
+                :key="index"><font-awesome-icon :icon="['fas', 'tag']" />
+                {{ interest }}</el-tag>
             </div>
             <!-- Commerce -->
             <div>
               <span v-for="(sns, index) in person.commerce" :key="index">
-                <el-link
-                  class="team-people-person-card-commerce"
-                  :underline="false"
-                  target="_blank"
-                  type="primary"
-                  :href="sns.link"
-                >
+                <el-link class="team-people-person-card-commerce" :underline="false" target="_blank" type="primary"
+                  :href="sns.link">
                   <el-tooltip :content="sns.account">
                     <font-awesome-icon :icon="sns.icon" />
                   </el-tooltip>
@@ -1119,38 +1142,22 @@ window.onresize = () => {
     <el-col :span="2"></el-col>
   </el-row>
   <!-- 合作 -->
-  <el-row
-    class="team-support"
-    :style="{ 'background-color': !isDark ? '#f1f0ed' : '#131824' }"
-  >
+  <el-row class="team-support" :style="{ 'background-color': !isDark ? '#f1f0ed' : '#131824' }">
     <el-col :span="2"></el-col>
     <el-col :span="20">
       <h1>CURRENT AND PREVIOUS SUPPORT</h1>
       <el-row class="team-support-wrap">
         <el-col :span="screenWidth > 1200 ? 12 : 24">
-          <el-carousel
-            :interval="1000"
-            type="card"
-            height="150px"
-            indicator-position="outside"
-          >
-            <el-carousel-item
-              class="team-support-wrap-card"
-              v-for="(support, index) in supports"
-              :key="index"
-            >
+          <el-carousel :interval="1000" type="card" height="150px" indicator-position="outside">
+            <el-carousel-item class="team-support-wrap-card" v-for="(support, index) in supports" :key="index">
               <el-link :underline="false" :href="support.link" target="_blank">
                 <el-image :src="support.logo" />
               </el-link>
             </el-carousel-item>
           </el-carousel>
         </el-col>
-        <el-col
-          :span="screenWidth > 1200 ? 8 : 24"
-          :offset="screenWidth > 1200 ? 4 : 0"
-        >
-          <span class="web-text"
-            >Here are some friendly links and cooperation units, thank you for
+        <el-col :span="screenWidth > 1200 ? 8 : 24" :offset="screenWidth > 1200 ? 4 : 0">
+          <span class="web-text">Here are some friendly links and cooperation units, thank you for
             cooperation and support.
           </span>
         </el-col>

@@ -4,17 +4,17 @@ import { useDark } from "@vueuse/core"; // 引入暗黑模式
 import Axios from "axios";
 
 const isDark = ref(useDark());
-const resources = ref();
-Axios.get("/api/resources")
-  .then((res) => {
-    // console.log(res)
-    if (res.status == 200) {
-      resources.value = res.data.data.resources;
-    }
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// const resources = ref();
+// Axios.get("/api/resources")
+//   .then((res) => {
+//     // console.log(res)
+//     if (res.status == 200) {
+//       resources.value = res.data.data.resources;
+//     }
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
 const screenWidth = ref();
 screenWidth.value = document.body.clientWidth;
@@ -25,51 +25,51 @@ window.onresize = () => {
 // onMounted(() => {
 // })
 
-// const resources = [
-//   {
-//     title: "Database",
-//     subtitle: "Databases developed by the group",
-//     tools: [
-//       {
-//         name: "TeCD",
-//         desc: "We are mainly committed to the research of Biological Big Data and AI theory",
-//         link: "http://www.eccdna.org:2022/"
-//       },
-//       {
-//         name: "CASA",
-//         desc: "Hello CASA",
-//         link: "https://casadbtools.com/"
-//       }
-//     ]
-//   },
-//   {
-//     title: "Source Code",
-//     subtitle: "Source code provided by the group",
-//     tools: [
-//       {
-//         name: "TeCD",
-//         desc: "We are mainly committed to the research of Biological Big Data and AI theory",
-//         link: "http://www.eccdna.org:2022/"
-//       },
-//       {
-//         name: "CASA",
-//         desc: "Hello CASA",
-//         link: "https://casadbtools.com/"
-//       }
-//     ]
-//   },
-//   {
-//     title: "Books",
-//     subtitle: "Books written by the group",
-//     tools: [
-//       {
-//         name: "TeCD",
-//         desc: "We are mainly committed to the research of Biological Big Data and AI theory",
-//         link: "http://www.eccdna.org:2022/"
-//       }
-//     ]
-//   },
-// ]
+const resources = [
+  {
+    title: "Database",
+    subtitle: "Databases developed by the group",
+    tools: [
+      {
+        name: "FACdb",
+        desc: "Farm Animal Connectome database",
+        link: "http://compbiol.top:2023/FACdb/"
+      },
+      {
+        name: "CASA",
+        desc: "CASA (Cell Atlas involving Sex and Androgens)",
+        link: "https://casadbtools.com/"
+      }
+    ]
+  },
+  // {
+  //   title: "Source Code",
+  //   subtitle: "Source code provided by the group",
+  //   tools: [
+  //     {
+  //       name: "TeCD",
+  //       desc: "We are mainly committed to the research of Biological Big Data and AI theory",
+  //       link: "http://www.eccdna.org:2022/"
+  //     },
+  //     {
+  //       name: "CASA",
+  //       desc: "Hello CASA",
+  //       link: "https://casadbtools.com/"
+  //     }
+  //   ]
+  // },
+  // {
+  //   title: "Books",
+  //   subtitle: "Books written by the group",
+  //   tools: [
+  //     {
+  //       name: "TeCD",
+  //       desc: "We are mainly committed to the research of Biological Big Data and AI theory",
+  //       link: "http://www.eccdna.org:2022/"
+  //     }
+  //   ]
+  // },
+]
 </script>
 
 <template>

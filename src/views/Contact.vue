@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from "vue";
 import { useDark } from "@vueuse/core"; // 引入暗黑模式
+// import mapHTML from "./../assets/api/Map.html";
 
 const isDark = ref(useDark());
 const contact = reactive({
-  map: "/api/Map.html",
+  // map: "/api/Map.html",
+  // map: mapHTML,
+  map: ""
 });
 
 const screenWidth = ref();
@@ -51,14 +54,13 @@ window.onresize = () => {
             <h1>Contact us</h1>
             <p class="web-text">Ze Zhang</p>
             <p class="web-text">
-              Hangzhou Institute for Advanced Study (HIAS), University of
-              Chinese Academy of Sciences (UCAS)
+              BGI Hangzhou Research
             </p>
             <p class="web-text">
-              No.1 Xiangshan Branch, Hangzhou 310004, Zhejiang Province, China
+              No.202 Zhenzhong Road, Hangzhou 310030, Zhejiang Province, China
             </p>
-            <p class="web-text">TEL : +86-13730553904</p>
-            <p class="web-text">E-mail : zhangze21@mails.ucas.ac.cn</p>
+            <p class="web-text">TEL : +86-19276868848</p>
+            <p class="web-text">E-mail : zhangze1@genomics.cn</p>
           </el-col>
           <!-- 14→24，2→0 -->
           <el-col

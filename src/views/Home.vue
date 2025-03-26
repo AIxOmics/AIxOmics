@@ -4,7 +4,7 @@ import { useDark } from "@vueuse/core"; // 引入暗黑模式
 import Axios from "axios";
 
 const isDark = ref(useDark());
-const news = ref();
+// const news = ref();
 // Axios.get("/api")
 //   .then((res) => {
 //     console.log(res);
@@ -15,6 +15,18 @@ const news = ref();
 //   .catch((err) => {
 //     console.log(err);
 //   });
+
+// 定义静态的新闻数据
+const news = ref([
+  {
+    title: "Here AIxOmics comes!",
+    introduction: "",
+    link: "https:aixomics.biometa.top",
+    datetime: "2023-09-18",
+    address: "AIxOmics is an open-source community dedicated to the deep integration of artificial intelligence (AI) and life sciences, dedicated to promoting innovative applications of AI technology in the field of life sciences. The community is centered around AI office tools, AI big models, and AI agents, focusing on cutting-edge AI technologies and the latest developments, providing members with an efficient platform for content exchange and learning. Through open collaboration, AIxOmics helps researchers quickly master AI technology, improve research efficiency and work capabilities, and contribute to breakthroughs and development in the field of life sciences.",
+    isShow: true
+  }
+]);
 
 const screenWidth = ref();
 screenWidth.value = document.body.clientWidth;
@@ -36,13 +48,8 @@ window.onresize = () => {
     <el-col :span="2"></el-col>
     <el-col :span="20">
       <h1>Welcome!</h1>
-      <h2>Computational Systems Biology Lab</h2>
-      <span
-        >We are mainly committed to the research of Biological Big Data and AI
-        theory and methods, including bioinformatics, computational systems
-        biology, network biology, dynamic data science methods, deep learning
-        and applications, etc.</span
-      >
+      <h2>AIxOmics Open Source Community</h2>
+      <span>AIxOmics is an open-source community dedicated to the deep integration of artificial intelligence (AI) and life sciences, dedicated to promoting innovative applications of AI technology in the field of life sciences.</span>
     </el-col>
     <el-col :span="2"></el-col>
   </el-row>
@@ -61,21 +68,13 @@ window.onresize = () => {
             </el-col>
             <!-- 14→24，2→0 -->
             <!-- <el-col :span="14" :offset="2"> -->
-            <el-col
-              :span="screenWidth > 1200 ? 14 : 24"
-              :offset="screenWidth > 1200 ? 2 : 0"
-            >
+            <el-col :span="screenWidth > 1200 ? 14 : 24" :offset="screenWidth > 1200 ? 2 : 0">
               <div v-for="(n, index) in news" :key="index">
                 <!-- <h2>This is an Advertisement space</h2> -->
                 <h2>
                   {{ n.title }}
-                  <el-link
-                    target="_blank"
-                    type="primary"
-                    :href="n.link"
-                    style="font-size: 16px; font-weight: bold"
-                  >
-                    会议链接
+                  <el-link target="_blank" type="primary" :href="n.link" style="font-size: 16px; font-weight: bold">
+                    Link
                   </el-link>
                 </h2>
                 <h4>{{ n.datetime }}</h4>

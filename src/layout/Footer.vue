@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 import { useDark } from "@vueuse/core"; // 引入暗黑模式
-import ucasImage from "./../assets/imgs/footer/ucas.png";
+import ucasImage from "./../assets/imgs/footer/AIxOmics-logo-image-only-touming.png";
 const isDark = ref(useDark());
 </script>
 
@@ -16,7 +16,7 @@ const isDark = ref(useDark());
         :background-color="!isDark ? '#f8f4ed' : '#0f1423'"
       >
         <div>
-          <a href="https://www.ucas.ac.cn/" target="_blank">
+          <a href="https://aixomics.biometa.top/" target="_blank">
             <el-image class="footer-wrap-logo" :src="ucasImage">
               <div slot="placeholder">Loading<span class="dot">...</span></div>
             </el-image>
@@ -34,7 +34,7 @@ const isDark = ref(useDark());
         </div>
         <div class="footer-wrap-flex-grow"></div>
         <div class="footer-wrap-text">
-          <div>© 2023 - 2024 Computational Systems Biology Lab</div>
+          <div>© 2023 - 2025 AIxOmics Open Source Community</div>
           <div>
             Powered by
             <a
@@ -42,18 +42,9 @@ const isDark = ref(useDark());
               target="_blank"
               style="color: #409eff"
               >Ze Zhang</a
-            >,
-            <a href="https://github.com/lllvcs" target="_blank" style="color: #409eff"
-              >Chengshang LYU</a
-            >,
-            <a
-              href="https://github.com/zhangqib"
-              target="_blank"
-              style="color: #409eff"
-              >Qibin Zhang</a
             >
           </div>
-          <div>
+          <!-- <div>
             @ CSBL,
             <a
               href="http://hias.ucas.ac.cn/"
@@ -67,7 +58,7 @@ const isDark = ref(useDark());
               style="color: #409eff"
               >UCAS</a
             >
-          </div>
+          </div> -->
         </div>
       </el-menu>
       <div class="mobile-footer-wrap">
